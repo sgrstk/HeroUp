@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using HeroUp.Models.Heroes;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,5 +10,7 @@ namespace HeroUp.Data
             : base(options)
         {
         }
+
+        DbSet<HeroBase> Heroes { get; set; }
     }
 }

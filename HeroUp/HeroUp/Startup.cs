@@ -12,6 +12,9 @@ using HeroUp.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using HeroUp.Repository;
+using HeroUp.Services.Interfaces;
+using HeroUp.Services;
 
 namespace HeroUp
 {
@@ -33,6 +36,8 @@ namespace HeroUp
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped<IHeroService, HeroService>();
             services.AddRazorPages();
         }
 

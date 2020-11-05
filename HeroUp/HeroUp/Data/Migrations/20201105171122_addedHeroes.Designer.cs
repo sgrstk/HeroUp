@@ -4,14 +4,16 @@ using HeroUp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HeroUp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201105171122_addedHeroes")]
+    partial class addedHeroes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,41 +28,38 @@ namespace HeroUp.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<double>("Agility")
-                        .HasColumnType("float");
+                    b.Property<int>("Agility")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<double>("Def")
-                        .HasColumnType("float");
+                    b.Property<int>("Dexterity")
+                        .HasColumnType("int");
 
-                    b.Property<double>("Dexterity")
-                        .HasColumnType("float");
+                    b.Property<int>("Experience")
+                        .HasColumnType("int");
 
-                    b.Property<double>("Experience")
-                        .HasColumnType("float");
-
-                    b.Property<double>("HP")
-                        .HasColumnType("float");
+                    b.Property<int>("HP")
+                        .HasColumnType("int");
 
                     b.Property<int>("HeroCategory")
                         .HasColumnType("int");
 
-                    b.Property<double>("Intelligence")
-                        .HasColumnType("float");
+                    b.Property<int>("Intelligence")
+                        .HasColumnType("int");
 
                     b.Property<int>("Level")
                         .HasColumnType("int");
 
-                    b.Property<double>("MP")
-                        .HasColumnType("float");
+                    b.Property<int>("MP")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Power")
-                        .HasColumnType("float");
+                    b.Property<int>("Power")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
