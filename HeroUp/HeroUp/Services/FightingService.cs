@@ -1,5 +1,7 @@
 ﻿using HeroUp.Models.Heroes;
+using HeroUp.Models.Terrains;
 using HeroUp.Services.Interfaces;
+using System.Collections.Generic;
 
 namespace HeroUp.Services
 {
@@ -30,6 +32,12 @@ namespace HeroUp.Services
             hero2.GetToFullStats();
 
             return hero1.IsDead ? hero2 : hero1;
+        }
+
+        public HeroBase Fight(HeroBase hero1, HeroBase hero2, TerrainBase terrain)
+        {
+            terrain.ApplyEffects(new List<HeroBase> { hero1, hero2 });
+            return Fight(hero1, hero2);
         }
     }
 }
