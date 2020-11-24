@@ -16,5 +16,14 @@
         {
             HP += ((Def * 0.2) - attackerHero.Power);
         }
+
+        public override void LevelUp()
+        {
+            HP += 90;
+            MP += 40;
+            Def += 30;
+            Power += 15;
+            base.LevelUp();
+        }
     }
 }

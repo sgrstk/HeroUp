@@ -18,13 +18,20 @@ namespace HeroUp.Models.Heroes
         }
         public override void Defence(HeroBase attackerHero)
         {
-            // this is an ability
-            // 10% dodge chance
             var dodgeChange = new Random(99);
             if (dodgeChange.Next() >= 5)
             {
                 HP += ((Def * 0.20) - attackerHero.Power);
             }
+        }
+
+        public override void LevelUp()
+        {
+            HP += 70;
+            MP += 60;
+            Def += 20;
+            Intelligence += 20;
+            base.LevelUp();
         }
     }
 }

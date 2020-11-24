@@ -17,15 +17,30 @@ namespace HeroUp.Models.Heroes
             HeroCategory = Enums.HeroCategory.Support;
         }
 
+        public override void GetToFullStats()
+        {
+            HP = 950 + (60 * (Level - 1));
+            MP = 800 + (40 * (Level - 1));
+            Def = 60 + (20 * (Level - 1));
+            Power = 40 + (10 * (Level - 1));
+            Agility = 35;
+            Intelligence = 30 + (10 * (Level - 1));
+            Dexterity = 15;
+        }
+
         public override void Defence(HeroBase attackerHero)
         {
-            // this is an ability
-            // 10% dodge chance
-            var dodgeChange = new Random(99);
-            if (dodgeChange.Next() >= 0)
-            {
-                HP += ((Def * 0.15) - attackerHero.Power);
-            }
+            HP += ((Def * 0.15) - attackerHero.Power);
+        }
+
+        public override void LevelUp()
+        {
+            HP += 60;
+            MP += 40;
+            Def += 20;
+            Power += 10;
+            Intelligence += 10;
+            base.LevelUp();
         }
     }
-    }
+}

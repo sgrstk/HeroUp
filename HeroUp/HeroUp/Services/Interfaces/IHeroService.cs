@@ -1,5 +1,4 @@
 ﻿using HeroUp.Models.Heroes;
-using System.Collections.Generic;
 
 namespace HeroUp.Services.Interfaces
 {
@@ -7,7 +6,13 @@ namespace HeroUp.Services.Interfaces
     {
         public HeroBase CreateBruiser(string name);
         public HeroBase CreateAssasin(string name);
-        public List<HeroBase> GetAllAssassins();
-        public void Fight(HeroBase champ1, HeroBase champ2);
+        public HeroBase CreateMage(string name);
+        public HeroBase CreateTank(string name);
+        public HeroBase CreateSupport(string name);
+
+        public void UpdateHero(HeroBase hero);
+
+        public Assasin GetMyAssasin();
+        public Support GetMySupport();
     }
 }

@@ -1,6 +1,4 @@
 ﻿namespace HeroUp.Terrains.Enums
-
-
 {
     public enum TerrainCategory
     {

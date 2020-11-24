@@ -1,9 +1,7 @@
-﻿using HeroUp.Models;
-using HeroUp.Models.Enums;
+﻿using HeroUp.Mappers;
 using HeroUp.Models.Heroes;
 using HeroUp.Repository;
 using HeroUp.Services.Interfaces;
-using System.Collections.Generic;
 
 namespace HeroUp.Services
 {
@@ -40,7 +38,7 @@ namespace HeroUp.Services
         public HeroBase CreateSupport(string name)
         {
             var newSupport = new Support(name);
-                _heroRepository.Insert(newSupport);
+            _heroRepository.Insert(newSupport);
             return newSupport;
         }
 
@@ -50,15 +48,34 @@ namespace HeroUp.Services
             _heroRepository.Insert(newTank);
             return newTank;
         }
-        public void Fight(HeroBase champ1, HeroBase champ2)
+
+        public Assasin GetMyAssasin()
         {
-            champ2.Defence(champ1);
-            champ1.Defence(champ2);
+            var databaseHero = _heroRepository.FindFirstBy(hero => hero.Name.Equals("assasin"));
+            return HeroMapper.MapAssasinFrom(databaseHero);
         }
 
-        public List<HeroBase> GetAllAssassins()
+        public Support GetMySupport()
         {
-            return _heroRepository.GetAllBy(h => h.HeroCategory == HeroCategory.Assasin);
+            var databaseHero = _heroRepository.FindFirstBy(hero => hero.Name.Equals("support"));
+            return HeroMapper.MapSupportFrom(databaseHero);
         }
+
+        public void UpdateHero(HeroBase hero)
+        {
+            hero.GetToFullStats();
+            _heroRepository.Update(hero);
+        }
+
+        //public void Fight(HeroBase champ1, HeroBase champ2)
+        //{
+        //    champ2.Defence(champ1);
+        //    champ1.Defence(champ2);
+        //}
+
+        //public List<HeroBase> GetAllAssassins()
+        //{
+        //    return _heroRepository.GetAllBy(h => h.HeroCategory == HeroCategory.Assasin);
+        //}
     }
 }

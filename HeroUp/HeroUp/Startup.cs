@@ -38,6 +38,7 @@ namespace HeroUp
             services.AddControllersWithViews();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped<IHeroService, HeroService>();
+            services.AddScoped<IFigthingService, FightingService>();
             services.AddRazorPages();
         }
 

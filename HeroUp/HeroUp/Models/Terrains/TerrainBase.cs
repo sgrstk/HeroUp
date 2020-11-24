@@ -1,20 +1,13 @@
-﻿using HeroUp.Models.Generic;
-using HeroUp.Models.Enums;
-using Microsoft.AspNetCore.SignalR;
+﻿using HeroUp.Models.Heroes;
 using HeroUp.Terrains.Enums;
+using System.Collections.Generic;
 
 namespace HeroUp.Models.Terrains
 {
-    public class TerrainBase : Entity
+    public abstract class TerrainBase
     {
-        public TerrainBase(string name)
-        {
-            Name = name;
+        public TerrainCategory TerrainCategory { get; set;}
 
-        }
-        public string Name { get; set; }
-        public TerrainCategory TerrainCategory {get; set;}
-
-        
+        public abstract void ApplyEffects(List<HeroBase> heroes);
     }
 }

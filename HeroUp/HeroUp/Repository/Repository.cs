@@ -15,6 +15,7 @@ namespace HeroUp.Repository
         public Repository(ApplicationDbContext context)
         {
             this._context = context;
+            context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
             _entities = context.Set<T>();
         }
 
@@ -39,6 +40,7 @@ namespace HeroUp.Repository
         public void Update(T entity)
         {
             if (entity == null) throw new ArgumentNullException("entity");
+            _context.Update(entity);
             _context.SaveChanges();
         }
 
