@@ -30,6 +30,26 @@ namespace HeroUp.Services
             return newBruiser;
         }
 
+        public HeroBase CreateMage(string name)
+        {
+            var newMage = new Mage(name);
+            _heroRepository.Insert(newMage);
+            return newMage;
+        }
+
+        public HeroBase CreateSupport(string name)
+        {
+            var newSupport = new Support(name);
+                _heroRepository.Insert(newSupport);
+            return newSupport;
+        }
+
+        public HeroBase CreateTank(string name)
+        {
+            var newTank = new Tank(name);
+            _heroRepository.Insert(newTank);
+            return newTank;
+        }
         public void Fight(HeroBase champ1, HeroBase champ2)
         {
             champ2.Defence(champ1);

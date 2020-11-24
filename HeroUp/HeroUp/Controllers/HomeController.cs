@@ -36,11 +36,12 @@ namespace HeroUp.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
+        /// Nota: sa iti instalezi SSMS(lasai pagina deschisa), iti facui eu clona la repo, nu trebuia sa ii dai download ci clone
+        ///         intre timp, poti sa vezi tabelele si din visual studio
         ///Homework
-        /// - implement all hero classes
-        /// - implement attack and defence based on different stats(see dodge chance)
-        /// - add fighting terrain
+        /// - implement all hero classes DONE
+        /// - implement attack and defence based on different stats(see dodge chance) (DONE)
+        /// - add fighting terrain 
         /// - enrich Fight from service using terrain
         /// - add terrain effects
         /// - add gain xp on win

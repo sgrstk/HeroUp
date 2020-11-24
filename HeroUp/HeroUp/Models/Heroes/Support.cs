@@ -3,18 +3,18 @@
 
 namespace HeroUp.Models.Heroes
 {
-    public class Tank : HeroBase
+    public class Support : HeroBase
     {
-        public Tank(string name) : base(name)
+        public Support(string name) : base(name)
         {
-            HP = 1400;
-            MP = 650;
-            Def = 100;
-            Power = 45;
-            Agility = 20;
+            HP = 950;
+            MP = 800;
+            Def = 60;
+            Power = 40;
+            Agility = 35;
             Intelligence = 30;
-            Dexterity = 35;
-            HeroCategory = Enums.HeroCategory.Tank;
+            Dexterity = 15;
+            HeroCategory = Enums.HeroCategory.Support;
         }
 
         public override void Defence(HeroBase attackerHero)
@@ -24,8 +24,8 @@ namespace HeroUp.Models.Heroes
             var dodgeChange = new Random(99);
             if (dodgeChange.Next() >= 0)
             {
-                HP += ((Def * 0.10) - attackerHero.Power);
+                HP += ((Def * 0.15) - attackerHero.Power);
             }
         }
     }
-}
+    }
